@@ -330,6 +330,7 @@ export const HeroImage = styled.img`
   position: relative;
   z-index: 10;
   animation: float 4s ease infinite;
+  margin-bottom: 50px;
 
   @keyframes float {
     0% {

@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
+  position: sticky; /* Skrol bo'lganda yuqorida qotib turishi uchun */
+  top: 0;            /* Eng tepaga yopishadi */
+  z-index: 1000;     /* Boshqa elementlar header ostidan silliq o'tishi uchun */
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #ffffff;
+  background-color: #ffffff; /* Orqa fon shaffof bo'lib qolmasligi uchun */
   border-bottom: 1px solid #f0f0f0;
   max-width: 1200px;
   margin: 0 auto;

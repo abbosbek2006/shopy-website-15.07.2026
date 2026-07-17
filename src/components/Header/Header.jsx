@@ -17,7 +17,8 @@ const Header = ({ cartCount = 2, currentTab, setCurrentTab }) => {
   const { lang, setLang, t } = useLanguage();
   const [showLangMenu, setShowLangMenu] = useState(false);
 
-  const handleLangChange = (selectedLang) => {
+  const handleLangChange = (selectedLang, e) => {
+    e.stopPropagation(); // Til tanlaganda dropdown yopilishi uchun klik tarqalishini to'xtatamiz
     setLang(selectedLang);
     setShowLangMenu(false);
   };
@@ -33,9 +34,9 @@ const Header = ({ cartCount = 2, currentTab, setCurrentTab }) => {
         <NavLink href="#" onClick={(e) => { e.preventDefault(); setCurrentTab("home"); }} active={currentTab === "home"}>
           {t("catalog")}
         </NavLink>
-        <NavLink href="#">{t("blog")}</NavLink>
-        <NavLink href="#">{t("contacts")}</NavLink>
-        <NavLink href="#">{t("help")}</NavLink>
+        <NavLink href="#" onClick={(e) => e.preventDefault()}>{t("blog")}</NavLink>
+        <NavLink href="#" onClick={(e) => e.preventDefault()}>{t("contacts")}</NavLink>
+        <NavLink href="#" onClick={(e) => e.preventDefault()}>{t("help")}</NavLink>
       </NavLinks>
 
       <HeaderActions>
@@ -47,9 +48,9 @@ const Header = ({ cartCount = 2, currentTab, setCurrentTab }) => {
           
           {showLangMenu && (
             <div className="lang-dropdown">
-              <div onClick={() => handleLangChange("UZ")}>UZ</div>
-              <div onClick={() => handleLangChange("RU")}>RU</div>
-              <div onClick={() => handleLangChange("EN")}>EN</div>
+              <div onClick={(e) => handleLangChange("UZ", e)}>UZ</div>
+              <div onClick={(e) => handleLangChange("RU", e)}>RU</div>
+              <div onClick={(e) => handleLangChange("EN", e)}>EN</div>
             </div>
           )}
         </LangSelector>
@@ -61,7 +62,7 @@ const Header = ({ cartCount = 2, currentTab, setCurrentTab }) => {
         </CartIconWrapper>
 
         {/* Akkaunt - Ajralib turuvchi kattaroq chiroyli tugma */}
-        <AccountButton href="#">
+        <AccountButton href="#" onClick={(e) => e.preventDefault()}>
           <FiUser />
           <span>{t("cabinet")}</span>
         </AccountButton>

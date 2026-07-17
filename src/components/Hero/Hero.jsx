@@ -21,7 +21,7 @@ import {
 import { FiArrowRight } from "react-icons/fi";
 
 // Rasmlar importi
-import HeroProduct from "../../assets/images/hero/hero-product.png";
+import HeroProduct from "../../assets/photo-remove.png";
 import Avatar1 from "../../assets/images/hero/avatar1.jpg";
 import Avatar2 from "../../assets/images/hero/avatar2.jpg";
 import Avatar3 from "../../assets/images/hero/avatar3.jpg";
